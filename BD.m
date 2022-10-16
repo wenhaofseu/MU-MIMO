@@ -43,7 +43,10 @@ while(1)
     L = L - 1;
 end
 p0 = [level - temp1(1:L);zeros(D-L,1)];
-p = p0(Index);
+p = zeros(D,1);
+for ind = 1:L
+    p(Index(ind)) = p0(ind);
+end
 Lambda = diag(p);
 Ms = Ms*Lambda^(1/2);
 C_BD1 = log2(det(eye(D)+Sigma^2*Lambda/sigma_n_q));
